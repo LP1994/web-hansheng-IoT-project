@@ -1,0 +1,146 @@
+该文件夹下都是GraphQL相关的。
+
+GraphQL 是一种 API 查询语言，通常用于将不同的数据源组合成以客户端为中心的 API。
+要设置 GraphQL API，首先要设置一个 GraphQL 服务器。
+该服务器会将您的数据作为 GraphQL API 公开，以便您的客户端应用程序查询数据。
+
+
+
+deno关于使用GraphQL的deno官方案例：
+https://docs.deno.com/runtime/manual/basics/connecting_to_databases#server
+
+GraphQL官方教程：
+https://graphql.org/graphql-js/
+
+graphql-http中关于在deno里使用GraphQL的案例：
+https://github.com/graphql/graphql-http?tab=readme-ov-file#with-deno
+
+
+
+// GraphQLServer.esm.mts
+'use strict';
+
+import {
+  GraphQLObjectType,
+  GraphQLSchema,
+  GraphQLString,
+} from 'npm:graphql';
+
+import {
+  createHandler,
+} from 'npm:graphql-http/lib/use/fetch';
+
+import {
+  type T_Response001,
+
+  HttpResponseHeadersFun,
+} from 'configures/GlobalParameters.esm.mts';
+
+/**
+ * 自定义了一个继承于Response的类。
+ * 用于在“npm:graphql-http/lib/use/fetch”处理后，我们可以继续操作，以便根据具体的业务返回给客户端一个想要的Response。
+ * 其构造函数的参数列表、类型都跟Response的构造函数的参数列表、类型是一致的。
+ */
+function GenerateForMyGraphQLServerResponse( request: Request ){
+  return class MyGraphQLServerResponse
+    extends Response {
+
+    public constructor( body?: BodyInit | null | undefined, init?: ResponseInit | undefined ){
+      super( body, {
+        ...( init ?? {} ),
+        headers: {
+          ...( init?.headers ?? {} ),
+          ...HttpResponseHeadersFun( request ),
+        },
+      } );
+    }
+
+  };
+}
+
+const schema: GraphQLSchema = new GraphQLSchema( {
+  query: new GraphQLObjectType( {
+    name: 'Query',
+    fields: {
+      hello: {
+        type: GraphQLString,
+        resolve: (): string => {
+          return `Hello World! This is the GraphQL Server.`;
+        },
+      },
+    },
+  } ),
+} );
+
+/**
+ * GraphQL Server。
+ *
+ * deno关于使用GraphQL的deno官方案例：
+ * https://docs.deno.com/runtime/manual/basics/connecting_to_databases#server
+ *
+ * GraphQL官方教程：
+ * https://graphql.org/graphql-js/
+ *
+ * graphql-http中关于在deno里使用GraphQL的案例：
+ * https://github.com/graphql/graphql-http?tab=readme-ov-file#with-deno
+ *
+ * @param {Request} request 请求对象，无默认值，必须。
+ *
+ * @returns {T_Response001} 返回值类型为Response、Promise<Response>。
+ */
+function GraphQLServer( request: Request ): T_Response001{
+  return createHandler(
+    /**
+     * 这个参数的值类型是一个Object类型，它有哪些属性呢？详细见：
+     * https://github.com/graphql/graphql-http/blob/main/src/handler.ts#L308
+     * 然后搜索“interface I_HandlerOptions”即可看到具体的说明。
+     */
+    {
+      schema,
+    },
+
+    /**
+     * 这个参数的值类型是一个Object类型（其源代码中的类型签名是：Partial<I_FetchAPI>），它有哪些属性呢？详细见：
+     * https://github.com/graphql/graphql-http/blob/main/src/use/fetch.ts#L15
+     * 然后搜索“interface I_FetchAPI”即可看到具体的说明：
+     * interface I_FetchAPI {
+     *   Response: typeof Response;
+     *   ReadableStream: typeof ReadableStream;
+     *   TextEncoder: typeof TextEncoder;
+     * }
+     */
+    {
+      Response: GenerateForMyGraphQLServerResponse( request ),
+    },
+  )( request );
+}
+
+export {
+  GraphQLServer,
+};
+
+export default GraphQLServer;
+
+
+
+// 客户端请求发送给的数据的结构如下：
+{
+
+// GraphQL查询参数
+query: `
+query Test001{
+    hello1: hello,
+}
+
+query Test002{
+    serverDate1: serverDate,
+}
+`,
+
+// 当上面的选项query的值中含有多个query、mutation时，必须明确指定要执行哪个，如：明确表示要执行的是“Test002”。
+operationName: 'Test002',
+
+// 如果有参数就在variables里写入一个个key-value。
+variables: {},
+
+}

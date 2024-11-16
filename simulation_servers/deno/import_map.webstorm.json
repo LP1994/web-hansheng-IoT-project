@@ -1,0 +1,61 @@
+{
+  "scopes": {
+    "https://esm.sh/": {
+      "https://esm.sh/v135/@types/graphql@14.5.0/index.d.ts": "https://esm.sh/graphql/index.d.ts",
+      "https://esm.sh/v135/graphql@16.8.1/denonext/graphql.mjs": "https://esm.sh/v135/graphql@16.9.0/denonext/graphql.mjs"
+    }
+  },
+  "imports": {
+    "deno_std/": "https://deno.land/std/",
+    "deno_std_encoding/": "https://deno.land/std/encoding/",
+    "deno_std_io/": "https://deno.land/std/io/",
+    "deno_std_media_types": "https://deno.land/std/media_types/mod.ts",
+    "deno_std_path": "https://deno.land/std/path/mod.ts",
+
+    "deno_x/": "https://deno.land/x/",
+    "deno_x_corejs": "https://deno.land/x/corejs/index.js",
+    "deno_x_ejs": "https://deno.land/x/dejs/mod.ts",
+    "deno_x_mongo": "https://deno.land/x/mongo/mod.ts",
+
+    "esm_sh/": "https://esm.sh/",
+    "esm_sh_graphql": "https://esm.sh/graphql",
+
+    "preact/": "https://cdn.skypack.dev/preact/",
+    "preact_jsx-runtime": "https://cdn.skypack.dev/preact/jsx-runtime?dts",
+    "preact_jsx-dev-runtime": "https://cdn.skypack.dev/preact/jsx-dev-runtime?dts",
+
+    "deno_src/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\",
+    "configures/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\configures\\",
+    "route_map_config/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\configures\\route_map_config\\",
+    "database/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\database\\",
+    "deno_db/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\database\\deno_db\\",
+    "firebase/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\database\\firebase\\",
+    "graphql/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\database\\graphql\\",
+    "mongo/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\database\\mongo\\",
+    "mysql/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\database\\mysql\\",
+    "postgres/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\database\\postgres\\",
+    "sqlite/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\database\\sqlite\\",
+    "supabase/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\database\\supabase\\",
+    "public/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\public\\",
+    "routers/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\routers\\",
+    "servers/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\servers\\",
+    "services/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\services\\",
+    "ssr/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\ssr\\",
+    "template/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\template\\",
+    "ejs/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\template\\ejs\\",
+    "handlebars/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\template\\handlebars\\",
+    "html/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\template\\html\\",
+    "markdown/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\template\\markdown\\",
+    "mustache/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\template\\mustache\\",
+    "pug_jade/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\template\\pug_jade\\",
+    "tools/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\tools\\",
+    "third_party_modules/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\tools\\third_party_modules\\",
+    "universal_tool_for_deno/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\tools\\universal_tool_for_deno\\",
+    "static/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\static\\",
+    "test/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\test\\",
+    "upload/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\upload\\",
+    "web/": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\web\\",
+
+    "GSD2TSTD": "G:\\WebStormWS\\web-hansheng-IoT-project\\simulation_servers\\deno\\src\\graphql_schema_definition_to_ts_type_definition\\GSD2TSTD.esm.mts"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "UniversalTools.esm.mts的API文档",
+  "entryPoints": [
+    "../UniversalTools.esm.mts"
+  ],
+  "extends": [
+    "../../../../../typedoc.json"
+  ],
+  "json": "./doc/UniversalTools.doc.json",
+  "readme": "./README.md",
+  "tsconfig": "./tsconfig.typedoc.json",
+  "out": "./doc"
+}

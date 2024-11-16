@@ -1,0 +1,94 @@
+该文件夹下都是MongoDB数据库相关的。
+
+当前使用node版的mongoose来连接MongoDB数据库和各个操作！不再使用“deno_mongo”！
+
+
+
+关于这个包“deno_mongo”：
+1、在“https://deno.land/”的右上角的搜索框里搜索“mongo”，出来的结果列表中一般第一个就是这个“deno_mongo”。
+2、“deno_mongo”对应的github的地址为“https://github.com/denodrivers/mongo”。
+3、直到2023年03月23日，“deno_mongo”最新版本是“0.31.2”，其依赖的web_bson也更新到了0.3.0，亲测可用。
+4、“deno_mongo”的文档使用说明地址是：https://deno.land/x/mongo
+5、实际试了一下旧的版本“deno_mongo@0.31.1”，会报错，因为它依赖的另外一个包“https://deno.land/x/web_bson@v0.2.5/mod.ts”中报了类型错误。
+错误在“https://deno.land/x/web_bson@v0.2.5/src/extended_json.ts?source”中的56行，
+它是一个莫名其妙的类型错误，可能是因为这个项目配置了自己的“deno.json”，里面配置了比较严格的类型检查，这可能导致那个莫名其妙的类型错误，毕竟不是所有的包都应用严格的类型检查。
+6、由于这个包“deno_mongo@0.31.1”的源码中未实现以SSL连接数据库的功能。
+从源码中可知是因为其底层依赖的“https://deno.land/api?unstable=&s=Deno.connectTls”、“https://deno.land/api?s=Deno.ConnectTlsOptions&unstable=”在先前的旧版本中还未实现相关的选项、功能。
+
+PS：
+1、关于Deno连接数据库教程见：https://deno.land/manual/basics/connecting_to_databases
+2、deno_mongo（使用教程见：https://deno.land/x/mongo）是为Deno开发的MongoDB数据库驱动程序。
+3、由于deno_mongo（使用教程见：https://deno.land/x/mongo）的教程并不详细，我们可以去node的npm包“mongodb”的指南文档：https://www.mongodb.com/docs/drivers/node/current/quick-start/
+该文档也适合deno_mongo的使用。
+4、“mongodb”的官方文档中的“CRUD (Create, Read, Update, Delete)”使用文档说明并非全都直接支持某些环境的驱动，如：node、deno的数据连接驱动。
+所以不能照搬使用，所以对于node、deno，关于数据库的“CRUD (Create, Read, Update, Delete)”可以参考上面提到的node的npm包“mongodb”的指南文档：https://www.mongodb.com/docs/drivers/node/current/quick-start/
+试过是支持deno中的数据库的“CRUD (Create, Read, Update, Delete)”。
+
+
+
+例子0001：
+import { MongoClient } from "https://deno.land/x/mongo@v0.29.3/mod.ts";
+
+const client = new MongoClient();
+
+// Connecting to a Local Database
+await client.connect("mongodb://127.0.0.1:27777");
+
+// Connecting to a Mongo Atlas Database
+await client.connect({
+  db: "<db_name>",
+  tls: true,
+  servers: [
+    {
+      host: "<db_cluster_url>",
+      port: 27017,
+    },
+  ],
+  credential: {
+    username: "<username>",
+    password: "<password>",
+    db: "<db_name>",
+    mechanism: "SCRAM-SHA-1",
+  },
+});
+
+// Connect using srv url
+await client.connect(
+  "mongodb+srv://<username>:<password>@<db_cluster_url>/<db_name>?authMechanism=SCRAM-SHA-1",
+);
+
+
+
+例子002：
+import {
+  MongoClient,
+} from 'deno_x/mongo@v0.29.3/mod.ts';
+
+  const client = new MongoClient();
+
+  const database = await client.connect( {
+    db: `local`,
+    servers: [
+      {
+        host: `127.0.0.1`,
+        port: 27777,
+      },
+    ],
+  } );
+
+  // Defining schema interface
+  interface StartupLogSchema {
+    _id: string;
+
+    hostname: string;
+
+    startTimeLocal: string;
+  }
+
+  const startupLog = database.collection<StartupLogSchema>( 'startup_log' );
+
+  const log = await startupLog.findOne( {
+    hostname: `LPQAQ`,
+  } );
+
+  console.dir( log );

@@ -1,0 +1,11 @@
+配置都在如下中：
+webpack.base.esm.mjs里头的moduleConfig。
+具体可以去详细看看。
+这里就不做细说了。
+
+PS：
+Beware, if you already define loader(s) for extension(s) in webpack.config.js you should use:
+import css from '!!raw-loader!./file.txt';
+// Adding `!!` to a request will disable all loaders specified in the configuration
+请注意，如果您已经在webpack.config.js中为扩展定义了加载器，则应使用：
+在请求中添加`!!`将禁用配置中指定的所有加载程序
