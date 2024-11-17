@@ -9,4 +9,4 @@
 
 'use strict';
 
-document.querySelector( 'main' ).textContent = `Hello World!`;
+document.querySelector( 'main' ).textContent = `昭通市加油站智慧综合监管平台`;

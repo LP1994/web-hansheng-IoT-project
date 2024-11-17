@@ -35,8 +35,6 @@ import {
   AppleTouchIconPrecomposed,
 } from './IconForLink.esm.mjs';
 
-import StartupImgForApple from './StartupImgForApple.esm.mjs';
-
 /**
  * URL开头的共同部分。<br />
  * 例子1：<br />
@@ -68,22 +66,22 @@ const defaultData = {
   pageExit: 'revealTrans(duration=5,transtion=9)',
   refresh: null,
   color: '#0000ff',
-  keywords: 'WEB,HTML5,CSS3',
-  description: 'This is a page for Index.',
-  subject: '这是一个副标题。',
-  generator: 'WebStorm',
-  appName: 'Index',
-  author: '1227839175@qq.com',
-  publisher: '12278',
+  keywords: '昭通市加油站智慧综合监管平台,广州瀚昇智能科技有限公司',
+  description: '昭通市加油站智慧综合监管平台。',
+  subject: '昭通市加油站智慧综合监管平台。',
+  generator: '广州瀚昇智能科技有限公司',
+  appName: '昭通市加油站智慧综合监管平台',
+  author: '广州瀚昇智能科技有限公司',
+  publisher: '广州瀚昇智能科技有限公司',
   creators: [
-    '1227839175@qq.com',
+    '广州瀚昇智能科技有限公司',
   ],
   itemprop: {
     type: 'website',
     url: URLHead + '/pages/Index.html',
-    name: 'Index',
-    description: 'This is a page for Index.',
-    image: URLHead + '/static/ico/uncompressed/ico_512_512.png',
+    name: '昭通市加油站智慧综合监管平台',
+    description: '昭通市加油站智慧综合监管平台。',
+    image: URLHead + '/static/ico/uncompressed/ico_200_200.png',
   },
   appLinks: {
     web: {
@@ -92,42 +90,18 @@ const defaultData = {
     share: {
       type: 'website',
       url: URLHead + '/pages/Index.html',
-      title: 'Index',
-      description: 'This is a page for Index.',
-      image: URLHead + '/static/ico/uncompressed/ico_512_512.png',
+      title: '昭通市加油站智慧综合监管平台',
+      description: '昭通市加油站智慧综合监管平台。',
+      image: URLHead + '/static/ico/uncompressed/ico_200_200.png',
     },
   },
   shortcutIcons: ShortcutIcons,
   icons: Icons,
   appleTouchIcon: AppleTouchIcon,
   appleTouchIconPrecomposed: AppleTouchIconPrecomposed,
-  og: {
-    og: 'website',
-    title: 'Index',
-    url: URLHead + '/pages/Index.html',
-    siteName: 'Index',
-    description: 'This is a page for Index.',
-    locale: 'zh_CN',
-    image: {
-      url: URLHead + '/static/ico/uncompressed/ico_512_512.png',
-      secureURL: URLHead + '/static/ico/uncompressed/ico_512_512.png',
-      type: 'image/png',
-      width: '512',
-      height: '512',
-      alt: '网站图片_512x512.png',
-    },
-  },
+  og: null,
   alternate: null,
-  twitter: {
-    type: 'website',
-    creator: '1227839175@qq.com',
-    site: URLHead + '/pages/Index.html',
-    url: URLHead + '/pages/Index.html',
-    title: 'Index',
-    description: 'This is a page for Index.',
-    card: 'summary_large_image',
-    image: URLHead + '/static/ico/uncompressed/ico_512_512.png',
-  },
+  twitter: null,
   facebook: null,
   publisherByGooglePlus: null,
   manifestByPWA: null,
@@ -142,7 +116,7 @@ const defaultData = {
   importByHTML: null,
   shortlink: null,
   search: null,
-  startupImgForApple: StartupImgForApple,
+  startupImgForApple: null,
   dynamicREM: true,
   webpackAssetsManifest: '../webpack_assets_manifest.json',
   chii4RemoteLikeWeinreTool: {
@@ -154,7 +128,7 @@ const defaultData = {
 
   // 以下是多个模板之间会共用到的变量的默认值。
   lang: 'zh-CN',
-  prefix: 'og: https://ogp.me/ns#',
+  prefix: null,
 };
 
 /**
@@ -233,7 +207,7 @@ function HTMLWebpackPluginConfig( {
   const config = [
     // 当isSPA为true时，会只取config里的第1个配置，因为此时项目被设置为单页应用，这个也将作为标准模板配置供参考，复制它后再改改某些具体的参数值即可。
     {
-      title: 'Index',
+      title: '昭通市加油站智慧综合监管平台',
       filename: 'pages/Index.html',
       template: './src/template/ejs/Index.ejs',
       excludeChunks: isSPA
@@ -242,65 +216,6 @@ function HTMLWebpackPluginConfig( {
                      : ExcludeChunks( 'Index' ),
       data: {
         ...defaultData,
-      },
-    },
-
-    {
-      title: 'Upload',
-      filename: 'pages/Upload.html',
-      template: './src/pages/upload/Upload.ejs',
-      excludeChunks: isSPA
-                     ? []
-                     : ExcludeChunks( 'Upload' ),
-      data: {
-        ...defaultData,
-        description: 'This is a page for Upload.',
-        appName: 'Upload',
-        itemprop: {
-          type: 'website',
-          url: URLHead + '/pages/Upload.html',
-          name: 'Upload',
-          description: 'This is a page for Upload.',
-          image: URLHead + '/static/ico/uncompressed/ico_512_512.png',
-        },
-        appLinks: {
-          web: {
-            url: URLHead + '/pages/Upload.html',
-          },
-          share: {
-            type: 'website',
-            url: URLHead + '/pages/Upload.html',
-            title: 'Upload',
-            description: 'This is a page for Upload.',
-            image: URLHead + '/static/ico/uncompressed/ico_512_512.png',
-          },
-        },
-        og: {
-          og: 'website',
-          title: 'Upload',
-          url: URLHead + '/pages/Upload.html',
-          siteName: 'Upload',
-          description: 'This is a page for Upload.',
-          locale: 'zh_CN',
-          image: {
-            url: URLHead + '/static/ico/uncompressed/ico_512_512.png',
-            secureURL: URLHead + '/static/ico/uncompressed/ico_512_512.png',
-            type: 'image/png',
-            width: '512',
-            height: '512',
-            alt: '网站图片_512x512.png',
-          },
-        },
-        twitter: {
-          type: 'website',
-          creator: '1227839175@qq.com',
-          site: URLHead + '/pages/Upload.html',
-          url: URLHead + '/pages/Upload.html',
-          title: 'Upload',
-          description: 'This is a page for Upload.',
-          card: 'summary_large_image',
-          image: URLHead + '/static/ico/uncompressed/ico_512_512.png',
-        },
       },
     },
   ];
