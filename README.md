@@ -2,8 +2,14 @@ This is a Hansheng Intelligent IoT project.<br />
 广州瀚昇智能科技有限公司<br />
 Guangzhou Hansheng Intelligent Technology Co., Ltd<br />
 13066332848@163.com<br />
+
+<br />
+
 昭通市加油站智慧综合监管平台建设项目<br />
 https://www.ggzy.gov.cn/information/html/a/530000/0104/202408/23/005335dec2069c7440849bc8d08980c9dd09.shtml<br />
+主要建设内容：<br />
+包括智慧综合监管服务及预警系统、数据实时采集软件、视频监控汇聚及AI应用及视频调度系统4个部分。<br />
+昭通市加油站智慧综合监管平台项目规划实现339座加油站规范管理工作，统筹调度加油站成品油销售工作。<br />
 
 <br />
 
