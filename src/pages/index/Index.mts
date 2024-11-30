@@ -1,6 +1,6 @@
 /**
  * Project: web-hansheng-IoT-project
- * FileDirPath: src/pages/index/Index.mjs
+ * FileDirPath: src/pages/index/Index.mts
  * Author: 12278
  * Email: 1227839175@qq.com
  * IDE: WebStorm
@@ -9,4 +9,4 @@
 
 'use strict';
 
-document.querySelector( 'main' ).textContent = `昭通市加油站智慧综合监管平台`;
+document.querySelector( 'main' )!.textContent = `昭通市加油站智慧综合监管平台`;
