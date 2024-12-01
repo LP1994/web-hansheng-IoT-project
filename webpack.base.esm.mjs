@@ -9635,7 +9635,12 @@ ${ JSON.stringify( req.headers, null, 4 ) }
      * 1、默认值：'remoteEntry.js'。<br />
      * 2、作为“output.path”目录内的相对路径。<br />
      */
-    filename: 'js/Webpack5_MF2_Main.js',
+    // filename: 'js/Webpack5_MF2_Main.js',
+    /*
+     remotes: {
+     UploadForMultiple: 'UploadForMultiple@https://localhost:8101/dev_server/js/Webpack5_MF2_RemoteEntry_UploadForMultiple.js',
+     },
+     */
     /**
      * 1、设置要导出的模块。<br />
      * 2、确保所有键都以'./'开头。<br />
@@ -9646,7 +9651,7 @@ ${ JSON.stringify( req.headers, null, 4 ) }
      * }
      * </code>
      */
-    exposes: {},
+    // exposes: {},
     shared: {
       vue: {
         singleton: true,
