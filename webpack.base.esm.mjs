@@ -9682,7 +9682,7 @@ ${ JSON.stringify( req.headers, null, 4 ) }
      */
     /*
      remotes: {
-     UploadForMultiple: 'UploadForMultiple@https://localhost:8101/Webpack5_MF2_RemoteEntry_UploadForMultiple.js',
+     UploadForMultiple: 'UploadForMultiple@https://localhost:8101/dev_server/Webpack5_MF2_RemoteEntry_UploadForMultiple.js',
      },
      */
     /**
