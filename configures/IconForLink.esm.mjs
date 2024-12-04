@@ -14,6 +14,22 @@
 'use strict';
 
 /**
+ * URL开头的共同部分。<br />
+ * 例子1：<br />
+ * https://192.168.2.10:8100/dev_server
+ * 例子2：<br />
+ * ..
+ *
+ * 注意：<br />
+ * HTML的标签<meta>的值可以是相对路径，也可以是绝对路径。<br />
+ * <meta http-equiv="refresh" content="5;url=another.html">
+ * <meta http-equiv="refresh" content="5;url=https://www.runoob.com/html/html-meta.html">
+ *
+ * @type {string}
+ */
+const URLHead = '..';
+
+/**
  * 为这个标签配置的：<br />
  * ```html
  * <link rel = 'shortcut icon' />
@@ -29,7 +45,7 @@ const ShortcutIcons = [
   {
     type: 'image/png',
     sizes: '200x200',
-    href: '../static/ico/uncompressed/ico_200_200.png',
+    href: URLHead + '/static/ico/uncompressed/ico_200_200.png',
   },
 ];
 
