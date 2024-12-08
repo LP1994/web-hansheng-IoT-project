@@ -1,10 +1,10 @@
 /**
- * Project: web-project-template
+ * Project: web-hansheng-IoT-project
  * FileDirPath: src/ModuleFederation_v2_RuntimeAPI.esm.mts
  * Author: 12278
  * Email: 1227839175@qq.com
  * IDE: WebStorm
- * CreateDate: 2024-01-01 00:00:00 星期六
+ * CreateDate: 2024-11-16 18:21:35 星期六
  */
 
 /**
