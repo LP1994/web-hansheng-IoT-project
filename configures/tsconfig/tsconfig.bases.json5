@@ -74,6 +74,7 @@ CreateDate: 2024-11-16 18:21:35 星期六
   //    "./src/**/*.test.*",
   //    "./subsystems/**/*.test.*",
   //    "./dist",
+  //    "**/node_modules/**",
   //    "./node_modules",
   //    "./bower_components",
   //    "./jspm_packages"
