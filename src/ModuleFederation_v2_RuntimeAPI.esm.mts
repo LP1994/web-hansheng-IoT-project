@@ -20,6 +20,26 @@
  */
 
 /**
+ * 例子：init
+ * <code>
+ * init( {
+ *   name: 'MF_v2_Main_UploadForSingle',
+ *   remotes: [
+ *     {
+ *       name: 'Remote_UploadForSingle',
+ *       entry: `${
+ *         isProduction
+ *         ? new URL( '../mf_v2/upload_for_single/', location.href ).href
+ *         : env.RemoteUploadForSingleURL
+ *       }RemoteEntry_UploadForSingle.js`,
+ *       alias: 'RemoteUploadForSingle',
+ *     },
+ *   ],
+ * } );
+ * </code>
+ */
+
+/**
  * 例子：registerRemotes
  * <code>
  * registerRemotes(
